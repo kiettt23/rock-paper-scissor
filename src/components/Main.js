@@ -31,10 +31,12 @@ export default function Main() {
   const [userGameItem, setUserGameItem] = useState(null);
   const [computerGameItem, setComputerGameItem] = useState(null);
 
+  // Cập nhật trạng thái lựa chọn của người chơi
   const handleGameItemChange = (gameItem) => {
     setUserGameItem({ ...gameItem });
   };
 
+  // Sử dụng useEffect vì đây là 1 tác động ngoài luồng k liên quan đến render
   useEffect(() => {
     if (userGameItem) {
       const computerNewItem = getRandomGameItem(gameItems);
@@ -47,14 +49,14 @@ export default function Main() {
     <div className="conainer">
       <div className="main">
         <Result
-          user1GameItem={"Your code here"}
-          user2GameItem={"Your code here"}
-          result={"Your code here"}
+          user1GameItem={userGameItem} // Truyền lựa chọn để hiển thị
+          user2GameItem={computerGameItem} // Truyền lựa chọn để hiển thị
+          result={result} // Truyền kết quả xuống Result hiển thị
         />
         <Display />
         <Choices
-          gameItems={"Your code here"}
-          handleGameItemChange={"Your code here"}
+          gameItems={gameItems} // Truyền mảng các đối tượng để Choice xử lý logic khi người dùng Onclick
+          handleGameItemChange={handleGameItemChange} // Truyền props xuống Choice
         />
       </div>
     </div>

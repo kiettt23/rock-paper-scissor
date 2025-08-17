@@ -8,9 +8,9 @@ function Choices({ gameItems, handleGameItemChange }) {
       <div className="choices">
         {gameItems.map((gameItem) => (
           <ChoiceCard
-            key={gameItem.id}
+            key={gameItem.id} // Để làm gì ?
             gameItem={gameItem}
-            handleGameItemChange={"Your code here"}
+            handleGameItemChange={handleGameItemChange} // Truyền hàm xuống ChoiceCard
           />
         ))}
       </div>

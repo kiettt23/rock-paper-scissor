@@ -1,6 +1,7 @@
 import React from "react";
 
-function Result({ "Your code here" }) {
+function Result({ result, user1GameItem, user2GameItem }) {
+  // Nhận props từ Main để hiển thị kết quả
   return (
     <div>
       <h1 className="result-header">Result</h1>
